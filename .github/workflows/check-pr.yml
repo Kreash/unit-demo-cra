@@ -6,7 +6,7 @@ on:
 
 jobs:
   chack-pr:
-    name: chack pull request
+    name: check pull request
     runs-on: ubuntu-latest
     defaults:
       run:
