@@ -1,1 +1,1 @@
-const hello: number = "asd"asdasdsd
+const hello: number = "asd";
