@@ -1,1 +1,1 @@
-﻿const hello: number = "asd" asdas;
+const hello: number = "asd"
