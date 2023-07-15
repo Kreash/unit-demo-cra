@@ -27,4 +27,4 @@ jobs:
       - name: unit tests
         run: npm run test
       - name: e2e tests
-        run: npm run e2e
+        run: npx playwright install && npm run e2e
