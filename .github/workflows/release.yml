@@ -2,9 +2,6 @@
 
 on:
   push:
-    branches:
-      - master
-  create:
     tags:
       - v[0-9]*
 
