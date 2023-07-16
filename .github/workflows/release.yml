@@ -22,7 +22,6 @@ concurrency:
 jobs:
 
   create-issue:
-    name: create issue
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -90,11 +89,45 @@ jobs:
   #     - name: Run Playwright tests
   #       run: CI=true npx playwright test --project=chromium
 
-  deploy:
+  release:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    needs: [create-issue]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Install and Build
+        working-directory: ./
+        run: |
+          npm install && npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './build/.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ./
+    runs-on: ubuntu-latest
+    needs: [create-issue]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
