@@ -34,7 +34,7 @@ jobs:
   create-issue:
     name: release
     runs-on: ubuntu-latest
-    # needs: tests
+    needs: tests
     defaults:
       run:
         working-directory: .
