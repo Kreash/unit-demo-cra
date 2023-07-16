@@ -66,6 +66,8 @@ jobs:
             gh issue edit $ISSUE_ID --body "$BODY"
           else
             gh issue create --title "$TITLE" --body "$BODY" --assignee ${{ github.actor }} --label "release notes"
+            ISSUE_ID=$(gh issue list --json number,title -q \
+            ".[] | select(.title == \"$TITLE\") | .number")
           fi
           echo "issueId=$ISSUE_ID" >> "$GITHUB_OUTPUT"
 
