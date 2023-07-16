@@ -20,7 +20,7 @@ concurrency:
 jobs:
 
   create-issue:
-    name: release
+    name: create issue
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -64,7 +64,7 @@ jobs:
           if [ ! -z "$ISSUE_ID" ]; then
             gh issue edit $ISSUE_ID --body "$BODY"
           else
-            gh issue create --title "$TITLE" --body "$BODY" --assignee ${{ github.actor }} --label "RELEASE"
+            gh issue create --title "$TITLE" --body "$BODY" --assignee ${{ github.actor }} --label "release notes"
           fi
 
   # tests:
