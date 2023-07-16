@@ -102,7 +102,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
-          tag_name: unit-demo-cra
+          branch: gh-pages
 
       - name: Install and Build
         working-directory: ./
