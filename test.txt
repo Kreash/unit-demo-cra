@@ -1,1 +1,5 @@
 ﻿test 9
+
+function hotfix() {
+  console.log("fixed");
+}
