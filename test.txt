@@ -1,5 +1,6 @@
 ﻿test 9
 1
+2
 another test
 
 function hotfix() {
