@@ -1,5 +1,7 @@
 ﻿test 9
 
+another test
+
 function hotfix() {
   console.log("fixed");
 }
